@@ -22,9 +22,20 @@
     [(code)
      (printlns
        "Usage:"
-       "compile-chez-program [--libdirs dirs] [--libexts exts] [--srcdirs dirs]"
-       "    [--optimize-level 0|1|2|3] [--chez-lib-dir /path/to/chez.a]"
-       "    [--full-chez] <scheme-program.ss> [c-compiler-args ...]"
+       " compile-chez-program [options ...] <scheme-program.ss> [c-compiler-args ...]"
+       "Options:"
+       " [--libdirs dirs]"
+       " [--libexts exts]"
+       " [--srcdirs dirs]"
+       " [--chez-lib-dir /path/to/chez.a]"
+       " [--optimize-level 0|1|2|3]"
+       " [--debug-level 0|1|2|3]"
+       " [--commonization-level 0|1|...|9]"
+       " [--compile-profile source|block]"
+       " [--full-chez]"
+       " [--compile-all-expressions]"
+       " [--undefined-variable-warnings]"
+       " [--generate-covin-files]"
        ""
        "This will compile a given scheme file and all of its imported libraries"
        "as with (compile-whole-program wpo-file output-file)"
@@ -49,7 +60,16 @@
     ["--optimize-level" (lambda (level)
                           (optimize-level (string->number level)))]
     ["--chez-lib-dir" chez-lib-dir]
+    ["--debug-level" (lambda (level)
+                       (debug-level (string->number level)))]
+    ["--commonization-level" (lambda (level)
+                               (commonization-level (string->number level)))]
+    ["--compile-profile" (lambda (profile)
+                           (compile-profile (string->symbol profile)))]
     [#t "--full-chez" full-chez]
+    [#f "--compile-all-expressions" compile-interpret-simple]
+    [#t "--undefined-variable-warnings" undefined-variable-warnings]
+    [#t "--generate-covin-files" generate-covin-files]
     ;;; Windows only
     [#t "--gui" gui]))
 
