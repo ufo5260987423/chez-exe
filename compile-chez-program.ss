@@ -129,11 +129,11 @@
   (case (os-name)
     [linux (string-append
             "-ldl -lm -luuid"
-            (if (use-libkernel) " -lreadline -ltinfo" "")
+            (if (use-libkernel) " -ltinfo" "")
             (if (threaded?) " -lpthread" ""))]
     [macosx (string-append
              "-liconv"
-             (if (use-libkernel) " -lreadline -ltinfo" ""))]
+             (if (use-libkernel) " -ltinfo" ""))]
     [windows "rpcrt4.lib ole32.lib advapi32.lib User32.lib"]))
 
 (build-included-binary-file embed-file "scheme_program" compiled-name)
