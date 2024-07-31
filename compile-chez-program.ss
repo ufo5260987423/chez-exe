@@ -128,9 +128,7 @@
 (define solibs
   (case (os-name)
     [linux (string-append
-            "-ldl -lm -luuid "
-            ;origin
-            ; "-ldl -lm -luuid -ltinfo"
+            "-ldl -lm -luuid -ltinfo"
             (if (threaded?) " -lpthread" ""))]
     [macosx "-liconv -ltinfo"]
     [windows "rpcrt4.lib ole32.lib advapi32.lib User32.lib"]))
