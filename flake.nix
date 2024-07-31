@@ -43,7 +43,7 @@
           exec "''${cmd[@]}"
         '';
       in {
-        packages.default = stdenv.mkDerivation {
+        packages.default = pkg.stdenv.mkDerivation {
             pname = "chez-exe";
             inherit (pre-chez-exe) version;
             phases = [ "installPhase" ];
