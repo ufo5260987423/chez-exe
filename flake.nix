@@ -50,7 +50,7 @@
             inherit (pre-chez-exe) version;
             phases = [ "installPhase" ];
             installPhase = ''
-                mkdir $out/bin
+                mkdir -p $out/bin
                 ln -s ${startScript} $out/bin/compile-chez-program
         '';
         };
