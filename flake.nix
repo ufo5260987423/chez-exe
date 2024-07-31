@@ -13,7 +13,7 @@
         platformSpecificInputs = if system == "x86_64-darwin"
           then [ pkgs.darwin.libiconv ]
           else [ pkgs.libuuid ];
-        writeShellScript = pgks.writeShellScript;
+        writeShellScript = pkgs.writeShellScript;
         libpath = lib.makeLibraryPath platformSpecificInputs;
         pre-chez-exe = pkgs.stdenv.mkDerivation {
           name = "chez-exe";
