@@ -39,10 +39,7 @@
         };
         startScript = writeShellScript "compile-chez-program" ''
           export LD_LIBRARY_PATH "${libpath}:''${LD_LIBRARY_PATH}"
-          cmd=(
-            ${pre-chez-exe}/bin/compile-chez-program "$@"
-          )
-          exec "''${cmd[@]}"
+          ${pre-chez-exe}/bin/compile-chez-program "$@"
         '';
       in {
         packages.default = pkgs.stdenv.mkDerivation {
