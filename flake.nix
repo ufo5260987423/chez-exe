@@ -38,8 +38,8 @@
           '';
         };
         startScript = writeShellScript "compile-chez-program" ''
+          export LD_LIBRARY_PATH "${libpath}:''${LD_LIBRARY_PATH}"
           cmd=(
-            export LD_LIBRARY_PATH "${libpath}:''${LD_LIBRARY_PATH}"
             ${pre-chez-exe}/bin/compile-chez-program "$@"
           )
           exec "''${cmd[@]}"
