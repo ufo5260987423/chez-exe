@@ -14,6 +14,7 @@
           then [ pkgs.darwin.libiconv ]
           else [ pkgs.libuuid ];
         writeShellScript = pkgs.writeShellScript;
+        lib = pkgs.lib;
         libpath = lib.makeLibraryPath platformSpecificInputs;
         pre-chez-exe = pkgs.stdenv.mkDerivation {
           name = "chez-exe";
