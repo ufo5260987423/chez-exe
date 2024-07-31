@@ -15,7 +15,7 @@
           else [ pkgs.libuuid ];
         writeShellScript = pkgs.writeShellScript;
         lib = pkgs.lib;
-        libpath = lib.makeLibraryPath ([ncurses5 ncurses6] ++ platformSpecificInputs);
+        libpath = lib.makeLibraryPath ([pkgs.ncurses5 pkgs.ncurses6] ++ platformSpecificInputs);
         pre-chez-exe = pkgs.stdenv.mkDerivation {
           name = "chez-exe";
           version = "0.0.1";
