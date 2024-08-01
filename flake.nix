@@ -15,7 +15,7 @@
           else [ pkgs.libuuid ];
         writeShellScript = pkgs.writeShellScript;
         lib = pkgs.lib;
-        libpath = lib.makeLibraryPath ([pkgs.ncurses5 pkgs.ncurses6] ++ platformSpecificInputs);
+        libPath = lib.makeLibraryPath ([pkgs.ncurses5 pkgs.ncurses6] ++ platformSpecificInputs);
         bubblewrap = pkgs.bubblewrap;
         pre-chez-exe = pkgs.stdenv.mkDerivation {
           name = "chez-exe";
