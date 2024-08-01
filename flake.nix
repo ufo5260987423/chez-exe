@@ -74,7 +74,7 @@
             --setenv LD_LIBRARY_PATH "${libPath}:''${LD_LIBRARY_PATH}"
             # 映射其它根目录下的路径
             "''${auto_mounts[@]}"
-            # 虚拟环境启动后运行 SVP 主程序
+            # 虚拟环境启动后运行主程序
             ${pre-chez-exe}/bin/compile-chez-program "$@"
           )
           exec "''${cmd[@]}"
