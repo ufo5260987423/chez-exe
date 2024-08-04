@@ -16,6 +16,7 @@
         writeShellScript = pkgs.writeShellScript;
         lib = pkgs.lib;
         libPath = lib.makeLibraryPath ([pkgs.ncurses5 pkgs.ncurses6] ++ platformSpecificInputs);
+          execPath = lib.makeBinPath ([ pkgs.libtool ]);
         bubblewrap = pkgs.bubblewrap;
         pre-chez-exe = pkgs.stdenv.mkDerivation {
           name = "chez-exe";
@@ -28,9 +29,6 @@
             ncurses6
           ] ++ platformSpecificInputs;
 
-          execPath = lib.makeBinPath [
-            pkgs.libtool
-          ];
           buildPhase = ''
             mkdir -p $out/{bin,lib}
             scheme --script gen-config.ss \
