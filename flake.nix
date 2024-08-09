@@ -73,7 +73,7 @@
             --proc /proc
             # 配置环境变量，包括查找命令和库的路径
             --setenv PATH "${execPath}:''${PATH}"
-            --setenv LD_LIBRARY_PATH "${libPath}:''${LD_LIBRARY_PATH}"
+            --setenv LIBRARY_PATH "${libPath}:''${LIBRARY_PATH}"
             # 映射其它根目录下的路径
             "''${auto_mounts[@]}"
             # 虚拟环境启动后运行主程序
